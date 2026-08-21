@@ -9,7 +9,13 @@
     "userInterfaceStyle": "automatic",
     "backgroundColor": "#FBFAF7",
     "newArchEnabled": true,
-    "assetBundlePatterns": ["**/*"],
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "app.recueildechants.iii"
@@ -51,7 +57,10 @@
           "image": "./assets/splash.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "dark": { "backgroundColor": "#4E2A84", "image": "./assets/splash.png" }
+          "dark": {
+            "backgroundColor": "#4E2A84",
+            "image": "./assets/splash.png"
+          }
         }
       ]
     ],
@@ -61,10 +70,19 @@
     "updates": {
       "enabled": true,
       "checkAutomatically": "ON_LOAD",
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/90a44499-bb6b-4482-ac47-7355f47aa46b"
     },
     "runtimeVersion": {
       "policy": "fingerprint"
-    }
+    },
+    "extra": {
+      "router": {},
+      "expo-navigation-bar": {},
+      "eas": {
+        "projectId": "90a44499-bb6b-4482-ac47-7355f47aa46b"
+      }
+    },
+    "owner": "georgesmfee"
   }
 }

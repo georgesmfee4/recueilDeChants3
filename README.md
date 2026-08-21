@@ -101,6 +101,9 @@ Ou depuis GitHub : onglet **Actions** → *Build* → **Run workflow**.
 | `ota.yml` | envoi sur `main` / `develop` | publie la mise à jour **si la CI est verte** |
 | `build.yml` | manuel | construit les binaires pour les magasins |
 
+Tableau de bord EAS :
+<https://expo.dev/accounts/georgesmfee/projects/recueil-de-chants-iii>
+
 Secret requis dans le dépôt (*Settings → Secrets and variables → Actions*) :
 
 | Secret | Où l'obtenir |
