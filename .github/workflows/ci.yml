@@ -86,12 +86,23 @@ jobs:
           node-version: 20
           cache: npm
 
+      # On installe EAS directement, sans passer par l'action tierce
+      # `expo/expo-github-action` : celle-ci embarque sa propre version de
+      # Node, ce qui la rend fragile aux evolutions de GitHub. Un simple
+      # `npm install` ne peut pas se perimer.
+      #
+      # L'authentification se fait toute seule : EAS lit la variable
+      # d'environnement EXPO_TOKEN, declaree en tete de ce travail.
       - name: Installer EAS
         if: env.EXPO_TOKEN != ''
-        uses: expo/expo-github-action@v8
-        with:
-          eas-version: latest
-          token: ${{ secrets.EXPO_TOKEN }}
+        run: npm install -g eas-cli
+
+      # Etape de diagnostic : elle affiche le compte Expo reconnu. Si le
+      # jeton est invalide ou expire, l'echec se produit ICI, avec un
+      # message clair, au lieu de se perdre plus loin dans la publication.
+      - name: Verifier le jeton aupres d'Expo
+        if: env.EXPO_TOKEN != ''
+        run: eas whoami
 
       - name: Installer les dépendances
         if: env.EXPO_TOKEN != ''
