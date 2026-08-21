@@ -102,7 +102,19 @@ jobs:
       # message clair, au lieu de se perdre plus loin dans la publication.
       - name: Verifier le jeton aupres d'Expo
         if: env.EXPO_TOKEN != ''
-        run: eas whoami
+        run: |
+          # On n'affiche JAMAIS la valeur du jeton, seulement sa longueur :
+          # un jeton tronque a la copie, ou colle avec une espace, se repere
+          # immediatement a ce chiffre.
+          echo "Longueur du jeton recu : ${#EXPO_TOKEN} caracteres"
+          echo "Emplacement de eas     : $(command -v eas || echo INTROUVABLE)"
+          if ! eas whoami; then
+            echo "::error::Expo refuse ce jeton."
+            echo "Verifiez qu'il vient bien de expo.dev (Account settings ->"
+            echo "Access tokens) et NON de GitHub, et qu'il a ete colle en"
+            echo "entier, sans espace avant ni apres."
+            exit 1
+          fi
 
       - name: Installer les dépendances
         if: env.EXPO_TOKEN != ''
