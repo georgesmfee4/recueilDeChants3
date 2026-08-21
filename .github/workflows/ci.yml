@@ -120,12 +120,39 @@ jobs:
         if: env.EXPO_TOKEN != ''
         run: npm ci
 
-      # `main` = ce que voient les fidèles. On y publie le canal `production`.
+      # ATTENTION — NE JAMAIS remettre le message de commit directement dans
+      # la commande, comme ceci :
+      #     --message "${{ github.event.head_commit.message }}"
+      #
+      # Deux raisons :
+      #   1. Un message de commit tient souvent sur PLUSIEURS LIGNES. Une fois
+      #      insere tel quel, la commande est coupee en deux et le shell tente
+      #      d'executer le reste du texte comme s'il s'agissait de commandes.
+      #   2. Un accent grave dans le message (par exemple `eas whoami`) est
+      #      interprete par le shell comme une commande a executer. C'est une
+      #      faille classique d'injection dans les workflows GitHub.
+      #
+      # La bonne facon : passer le texte par une VARIABLE D'ENVIRONNEMENT.
+      # GitHub y depose la valeur brute, sans que le shell ne la relise.
+      # On ne garde ensuite que la premiere ligne, qui suffit a l'historique
+      # des mises a jour.
+
+      # `main` = ce que voient les fideles. On y publie le canal `production`.
       - name: Publier sur production
         if: env.EXPO_TOKEN != '' && github.ref == 'refs/heads/main'
-        run: eas update --branch production --message "${{ github.event.head_commit.message }}" --non-interactive
+        env:
+          MESSAGE_COMMIT: ${{ github.event.head_commit.message }}
+        run: |
+          SUJET=$(printf '%s' "$MESSAGE_COMMIT" | head -n 1)
+          echo "Publication sur production : $SUJET"
+          eas update --branch production --message "$SUJET" --non-interactive
 
       # `develop` = le canal interne, pour que l'auteur essaie avant diffusion.
       - name: Publier sur preview
         if: env.EXPO_TOKEN != '' && github.ref == 'refs/heads/develop'
-        run: eas update --branch preview --message "${{ github.event.head_commit.message }}" --non-interactive
+        env:
+          MESSAGE_COMMIT: ${{ github.event.head_commit.message }}
+        run: |
+          SUJET=$(printf '%s' "$MESSAGE_COMMIT" | head -n 1)
+          echo "Publication sur preview : $SUJET"
+          eas update --branch preview --message "$SUJET" --non-interactive
