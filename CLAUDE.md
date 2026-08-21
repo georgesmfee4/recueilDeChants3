@@ -70,7 +70,7 @@ npm run verifier      # tsc --noEmit && eslint . && jest
 ## Mises à jour
 
 - Paroles, écrans, couleurs, mise en page → **OTA** : `git push origin main`
-  publie automatiquement (voir `.github/workflows/ota.yml`).
+  publie automatiquement (voir `.github/workflows/ci.yml`).
 - Nouvelle bibliothèque native, nouveau SDK Expo, icône, nom, permissions →
   **construction pour les magasins** obligatoire (workflow `build.yml`).
 

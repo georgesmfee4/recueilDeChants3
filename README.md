@@ -97,9 +97,12 @@ Ou depuis GitHub : onglet **Actions** → *Build* → **Run workflow**.
 
 | Workflow | Déclenchement | Rôle |
 | --- | --- | --- |
-| `ci.yml` | chaque PR et chaque envoi | types, conventions, tests, construction du paquet |
-| `ota.yml` | envoi sur `main` / `develop` | publie la mise à jour **si la CI est verte** |
+| `ci.yml` | chaque PR et chaque envoi | contrôles (types, conventions, tests, construction) **puis** publication OTA |
 | `build.yml` | manuel | construit les binaires pour les magasins |
+
+La publication est un second travail du même fichier, avec `needs: verifier` :
+elle ne démarre **que** si les contrôles sont verts. Sur une proposition de
+modification, elle ne démarre jamais.
 
 Tableau de bord EAS :
 <https://expo.dev/accounts/georgesmfee/projects/recueil-de-chants-iii>
