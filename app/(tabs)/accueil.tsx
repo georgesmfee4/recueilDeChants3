@@ -179,7 +179,7 @@ export default function EcranAccueil() {
             hauteur={taillUne.hauteur}
             couleurLigne={c.ink}
             opaciteLigne={0.05}
-            opaciteNote={0.2}
+            opaciteNote={0.14}
           />
         </View>
 
