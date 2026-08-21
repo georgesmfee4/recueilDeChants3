@@ -1,30 +1,70 @@
 {
   "expo": {
-    "name": "recueil-cantiques-3",
-    "slug": "recueil-cantiques-3",
-    "version": "1.0.0",
+    "name": "Recueil de Chants",
+    "slug": "recueil-de-chants-iii",
+    "version": "3.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "scheme": "recueil",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#FBFAF7",
     "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "app.recueildechants.iii"
+    },
+    "androidNavigationBar": {
+      "enforceContrast": false
     },
     "android": {
+      "package": "app.recueildechants.iii",
+      "edgeToEdgeEnabled": true,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+        "backgroundColor": "#FBFAF7"
+      }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "plugins": [
+      "expo-router",
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Newsreader-Regular.ttf",
+            "./assets/fonts/Newsreader-Italic.ttf",
+            "./assets/fonts/Newsreader-Medium.ttf",
+            "./assets/fonts/Newsreader-SemiBold.ttf",
+            "./assets/fonts/Archivo-Regular.ttf",
+            "./assets/fonts/Archivo-Medium.ttf",
+            "./assets/fonts/Archivo-SemiBold.ttf",
+            "./assets/fonts/Archivo-Bold.ttf"
+          ]
+        }
+      ],
+      "expo-updates",
+      "expo-navigation-bar",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#4E2A84",
+          "image": "./assets/splash.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "dark": { "backgroundColor": "#4E2A84", "image": "./assets/splash.png" }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "updates": {
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 0
+    },
+    "runtimeVersion": {
+      "policy": "fingerprint"
     }
   }
 }

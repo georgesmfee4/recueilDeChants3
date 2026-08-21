@@ -1,0 +1,53 @@
+# Construction des binaires pour les magasins d'applications.
+#
+# Contrairement aux deux autres workflows, celui-ci ne part JAMAIS tout seul :
+# on le déclenche à la main depuis l'onglet Actions de GitHub
+# (« Run workflow »), en choisissant le profil et la plateforme.
+#
+# Quand faut-il l'utiliser ? Seulement pour ce qui ne passe pas en OTA :
+# une nouvelle bibliothèque native, un changement de version d'Expo, une
+# nouvelle icône, un nouveau nom d'application. Tout le reste — paroles,
+# écrans, couleurs — part par le workflow OTA.
+name: Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      profil:
+        description: Profil EAS
+        required: true
+        default: preview
+        type: choice
+        options: [preview, production]
+      plateforme:
+        description: Plateforme
+        required: true
+        default: android
+        type: choice
+        options: [android, ios, all]
+
+jobs:
+  build:
+    name: Construire (${{ inputs.profil }} · ${{ inputs.plateforme }})
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Installer EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - run: npm ci
+
+      # `--no-wait` rend la main tout de suite : la construction se poursuit
+      # sur les serveurs d'Expo, on suit son avancement sur expo.dev.
+      - name: Lancer la construction
+        run: eas build --profile ${{ inputs.profil }} --platform ${{ inputs.plateforme }} --non-interactive --no-wait

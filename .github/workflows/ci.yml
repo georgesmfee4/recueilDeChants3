@@ -1,0 +1,53 @@
+# Contrôles automatiques.
+#
+# Ce workflow tourne sur chaque proposition de modification (pull request) et
+# sur chaque envoi vers `main` ou `develop`. Il refuse le code qui ne compile
+# pas, qui ne respecte pas les conventions, ou qui abîmerait les données du
+# recueil.
+#
+# C'est lui qui rend les mises à jour OTA sûres : sans ces contrôles, un
+# `git push` malheureux enverrait des paroles corrompues sur tous les
+# téléphones déjà installés.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, develop]
+
+jobs:
+  verifier:
+    name: Types, conventions et données
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # `npm ci` installe EXACTEMENT les versions du package-lock.json, sans
+      # jamais les mettre à jour. C'est ce qui garantit que la CI teste bien le
+      # même code que celui qui tourne sur votre machine.
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Vérifier les types
+        run: npx tsc --noEmit
+
+      - name: Vérifier les conventions
+        run: npx eslint .
+
+      # Les 33 tests, dont les 9 invariants du recueil : 302 cantiques,
+      # 85 chœurs, 5771 lignes, aucun numéro manquant…
+      - name: Lancer les tests
+        run: npx jest --ci
+
+      # Dernière vérification : le paquet JavaScript se construit-il vraiment ?
+      # Un projet peut passer le typage et les tests et refuser de s'assembler.
+      - name: Construire le paquet
+        run: npx expo export --platform android --output-dir /tmp/verification-bundle

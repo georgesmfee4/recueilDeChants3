@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./recueil-iii-global.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#EFEBE4;font-family:Archivo,system-ui,sans-serif;color:#17131F;-webkit-font-smoothing:antialiased}
+a{color:#4E2A84;text-decoration:none}
+a:hover{color:#6B3FAE}
+button{font-family:inherit}
+input{font-family:inherit}
+[data-read-scroll]::-webkit-scrollbar{width:0;height:0;display:none}
+@keyframes rc3Rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes rc3Fade{from{opacity:0}to{opacity:1}}
+@keyframes rc3Rule{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes rc3Sheet{from{transform:translateY(102%)}to{transform:none}}
+@keyframes rc3Book{from{opacity:0;transform:translateY(10px) rotate(-1.5deg)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"><rect width="240" height="240" fill="#4E2A84"></rect><rect x="80" y="60" width="80" height="108" rx="5" fill="#FBFAF7"></rect><rect x="80" y="60" width="10" height="108" rx="5" fill="#E2D8F2"></rect><rect x="102" y="86" width="40" height="5" fill="#4E2A84"></rect><rect x="102" y="102" width="40" height="5" fill="#4E2A84"></rect><rect x="102" y="118" width="26" height="5" fill="#F0C069"></rect><circle cx="152" cy="70" r="16" fill="#F0C069"></circle><text x="152" y="77" text-anchor="middle" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#381E63">III</text></svg>
+</template>
+<section id="1a" style="padding:64px 60px 96px;display:flex;flex-direction:column;gap:56px;max-width:1980px">
+
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;border-bottom:1px solid #D9D3C9;padding-bottom:26px">
+<div style="display:flex;gap:20px;align-items:flex-start">
+<span style="flex:none;padding:6px 11px;background:#4E2A84;color:#fff;font-size:12px;font-weight:600;letter-spacing:.4px">1a</span>
+<div>
+<div style="font-size:10.5px;font-weight:600;letter-spacing:2.4px;color:#6E687C">PROTOTYPE HAUTE FIDÉLITÉ · NOUVELLE GÉNÉRATION</div>
+<div style="font-family:Newsreader,serif;font-size:46px;font-weight:400;letter-spacing:-1.4px;line-height:1.02;margin-top:12px">Recueil de Chants <span style="color:#4E2A84">III</span></div>
+<div style="font-size:14px;color:#5A5566;margin-top:12px;max-width:720px;line-height:1.65;text-wrap:pretty">Direction éditoriale : la page imprimée. Aucune ombre, aucune carte arrondie, aucun tableau de bord — des filets, de grands blancs, des chiffres composés en Newsreader, une barre flottante qui disparaît dès qu’on lit et une lecture qui défile verticalement, d’un seul tenant. Les onze écrans ci-dessous sont vivants et indépendants : touchez-les.</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:7px;flex:none;text-align:right">
+<span style="font-size:11.5px;color:#6E687C">302 cantiques · 85 chœurs · vraies paroles</span>
+<span style="font-size:11.5px;color:#6E687C">Newsreader + Archivo · Violet royal #4E2A84</span>
+<span style="font-size:11.5px;color:#6E687C">Cible : React Native Expo · TypeScript</span>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:60px 44px">
+<sc-for list="{{ frames }}" as="f" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;gap:15px;width:390px">
+<div style="display:flex;align-items:baseline;gap:9px;padding-left:2px">
+<span style="font-family:Newsreader,serif;font-size:14px;color:#4E2A84">{{ f.idx }}</span>
+<span style="font-size:13px;font-weight:600;color:#17131F">{{ f.label }}</span>
+<span style="font-size:12px;color:#6E687C;font-weight:400">{{ f.note }}</span>
+</div>
+<div data-screen-label="{{ f.label }}" style="--ink:#17131F;--ink2:#5A5566;--ink3:#6E687C;--paper:#FBFAF7;--surf:#FFFFFF;--surf2:#F5F2EC;--rule:#E4DFD6;--ruleSoft:#F0ECE4;--pri:#4E2A84;--priDeep:#381E63;--priSoft:#F3EEFB;--onPri:#FFFFFF;--or:#F0C069;--blur:rgba(251,250,247,.9);{{ f.vars }}position:relative;width:390px;height:844px;flex:none;border:1px solid #D9D3C9;border-radius:38px;overflow:hidden;background:var(--paper);color:var(--ink)">
+
+<sc-if value="{{ f.isSplash }}">
+<div style="position:absolute;inset:0;background:var(--pri);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0">
+<div style="animation:rc3Book .8s cubic-bezier(.2,.8,.16,1) both">
+<svg width="132" height="132" viewBox="0 0 240 240" fill="none">
+<rect x="44" y="18" width="152" height="204" rx="9" fill="#FBFAF7"></rect>
+<path d="M62 18 H53 a9 9 0 0 0 -9 9 V213 a9 9 0 0 0 9 9 h9 Z" fill="#E2D8F2"></path>
+<rect x="107" y="58.4" width="42" height="2.4" fill="#4E2A84"></rect>
+<text x="130" y="90" text-anchor="middle" fill="#381E63" font-family="Newsreader, serif" font-size="19.5" font-weight="600" letter-spacing="3.7">RECUEIL</text>
+<text x="129" y="108" text-anchor="middle" fill="#381E63" font-family="Newsreader, serif" font-size="7.6" font-weight="500" letter-spacing="2.4">DE</text>
+<text x="130" y="130.5" text-anchor="middle" fill="#381E63" font-family="Newsreader, serif" font-size="19.5" font-weight="600" letter-spacing="3.7">CHANTS</text>
+<rect x="107" y="145" width="42" height="2.4" fill="#4E2A84"></rect>
+<g transform="translate(60.9,145.6) scale(1.1)">
+<ellipse cx="53.5" cy="38" rx="8.2" ry="6.3" transform="rotate(-20 53.5 38)" fill="#F0C069"></ellipse>
+<rect x="60" y="13" width="3.6" height="26" rx="1.8" fill="#F0C069"></rect>
+<path d="M63.6 14 C 72 18 77.5 24 75.5 32.5 C 74.5 26.5 70 22 63.6 20 Z" fill="#F0C069"></path>
+</g>
+<circle cx="173" cy="43" r="19.5" fill="#F0C069"></circle>
+<text x="173.5" y="50" text-anchor="middle" fill="#381E63" font-family="Newsreader, serif" font-size="19" font-weight="600" letter-spacing="1">III</text>
+</svg>
+</div>
+<div style="height:1px;width:64px;background:#F0C069;margin:34px 0 0;animation:rc3Rule .7s .5s cubic-bezier(.2,.8,.16,1) both"></div>
+<div style="font-size:11px;font-weight:600;letter-spacing:4.4px;color:rgba(255,255,255,.86);margin-top:22px;animation:rc3Rise .7s .62s cubic-bezier(.2,.8,.16,1) both">TROISIÈME ÉDITION</div>
+<div style="position:absolute;left:0;right:0;bottom:44px;display:flex;flex-direction:column;align-items:center;gap:8px;animation:rc3Fade .8s .9s both">
+<span style="font-family:Newsreader,serif;font-size:15px;color:rgba(255,255,255,.7)">2025</span>
+<span style="font-size:10.5px;letter-spacing:1.6px;color:rgba(255,255,255,.42)">TCHINDEBBE CHARLES</span>
+</div>
+<button onClick="{{ f.goAccueil }}" aria-label="Entrer" style="position:absolute;inset:0;border:none;background:transparent;cursor:pointer"></button>
+</div>
+</sc-if>
+
+<sc-if value="{{ f.hasChrome }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;left:0;right:0;top:0;height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;z-index:4">
+<span style="font-size:12.5px;font-weight:600;letter-spacing:.2px">9:41</span>
+<span style="display:flex;align-items:center;gap:5px">
+<span style="width:14px;height:8px;border:1px solid var(--ink2);display:block"></span>
+<span style="width:15px;height:8px;background:var(--ink2);display:block"></span>
+</span>
+</div>
+</sc-if>
+
+<sc-if value="{{ f.isAccueil }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;inset:50px 0 0;padding:0 28px;overflow:hidden">
+<div style="display:flex;align-items:center;justify-content:flex-end;padding-top:6px">
+<span style="display:flex;gap:6px">
+<button onClick="{{ f.goSignets }}" aria-label="Signets" style="width:36px;height:36px;border:none;background:transparent;color:var(--ink2);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0" style-hover="color:var(--pri)">
+<svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5.5 3.2h9v13.6L10 13l-4.5 3.8z"></path></svg>
+</button>
+<button onClick="{{ f.goReglages }}" aria-label="Réglages" style="width:36px;height:36px;border:none;background:transparent;color:var(--ink2);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0" style-hover="color:var(--pri)">
+<svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3.5 6.5h6M12.8 6.5h3.7M3.5 13.5h3.7M10.3 13.5h6.2"></path><circle cx="11" cy="6.5" r="1.7"></circle><circle cx="8" cy="13.5" r="1.7"></circle></svg>
+</button>
+</span>
+</div>
+
+<div style="margin-top:26px">
+<div style="font-family:Newsreader,serif;font-size:44px;font-weight:400;line-height:.98;letter-spacing:-1.6px">Recueil<br>de Chants</div>
+<div style="display:flex;align-items:center;gap:11px;margin-top:16px">
+<span style="width:26px;height:1px;background:var(--or)"></span>
+<span style="font-size:10px;font-weight:600;letter-spacing:2.6px;color:var(--pri)">TROISIÈME ÉDITION · 2025</span>
+</div>
+</div>
+
+<button onClick="{{ f.resume }}" style="width:100%;text-align:left;margin-top:30px;padding:0 0 18px;border:none;border-bottom:1px solid var(--rule);background:transparent;cursor:pointer;color:var(--ink);display:block" style-hover="opacity:.72">
+<span style="display:block;font-size:10px;font-weight:600;letter-spacing:2px;color:var(--ink3)">REPRENDRE</span>
+<span style="display:flex;align-items:baseline;gap:12px;margin-top:11px">
+<span style="font-family:Newsreader,serif;font-size:24px;color:var(--pri);line-height:1">{{ resumeNum }}</span>
+<span style="font-family:Newsreader,serif;font-size:16.5px;line-height:1.26;flex:1;min-width:0;letter-spacing:.3px">{{ resumeTitle }}</span>
+</span>
+<span style="display:block;height:2px;background:var(--ruleSoft);margin-top:14px;position:relative">
+<span style="position:absolute;left:0;top:0;bottom:0;width:38%;background:var(--pri)"></span>
+</span>
+</button>
+
+<div style="padding:26px 0 24px;border-bottom:1px solid var(--rule)">
+<div style="font-size:10px;font-weight:600;letter-spacing:2px;color:var(--ink3)">LE CHANT DU JOUR</div>
+<div style="display:flex;gap:18px;margin-top:16px">
+<div style="font-family:Newsreader,serif;font-size:64px;line-height:.82;color:var(--pri);letter-spacing:-3px;flex:none">{{ dayNum }}</div>
+<div style="flex:1;min-width:0;padding-top:4px">
+<div style="font-family:Newsreader,serif;font-size:19.5px;line-height:1.26;letter-spacing:.3px">{{ dayTitle }}</div>
+</div>
+</div>
+<div style="font-family:Newsreader,serif;font-style:italic;font-size:16.5px;line-height:1.62;color:var(--ink2);margin-top:16px">
+<sc-for list="{{ dayLines }}" as="ln" hint-placeholder-count="2">
+<div>{{ ln }}</div>
+</sc-for>
+</div>
+<button onClick="{{ f.openDay }}" style="margin-top:18px;display:flex;align-items:center;gap:9px;border:none;background:transparent;padding:0;cursor:pointer;color:var(--pri);font-size:13px;font-weight:600;letter-spacing:.2px" style-hover="gap:14px">
+Lire ce chant
+<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h11M11 5.5 15.5 10 11 14.5"></path></svg>
+</button>
+</div>
+
+<div>
+<button onClick="{{ f.goListe }}" style="width:100%;display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:17px 0;border:none;border-bottom:1px solid var(--ruleSoft);background:transparent;cursor:pointer;color:var(--ink);text-align:left" style-hover="padding-left:6px">
+<span style="font-size:15px;font-weight:500">Tous les cantiques</span>
+<span style="font-family:Newsreader,serif;font-size:22px;color:var(--pri)">302</span>
+</button>
+<button onClick="{{ f.goChoeurs }}" style="width:100%;display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:17px 0;border:none;border-bottom:1px solid var(--ruleSoft);background:transparent;cursor:pointer;color:var(--ink);text-align:left" style-hover="padding-left:6px">
+<span style="font-size:15px;font-weight:500">Chœurs</span>
+<span style="font-family:Newsreader,serif;font-size:22px;color:var(--pri)">85</span>
+</button>
+<button onClick="{{ f.goSignets }}" style="width:100%;display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:17px 0;border:none;background:transparent;cursor:pointer;color:var(--ink);text-align:left" style-hover="padding-left:6px">
+<span style="font-size:15px;font-weight:500">Mes favoris</span>
+<span style="font-family:Newsreader,serif;font-size:22px;color:var(--pri)">{{ favCount }}</span>
+</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ f.isListe }}">
+<div style="position:absolute;inset:50px 0 0;overflow:hidden">
+<div style="padding:8px 28px 0">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px">
+<div>
+<div style="font-family:Newsreader,serif;font-size:34px;letter-spacing:-1px;line-height:1">Cantiques</div>
+<div style="font-size:11.5px;color:var(--ink3);margin-top:7px">302 chants · édition 2025</div>
+</div>
+<button onClick="{{ f.openGoto }}" style="display:flex;align-items:center;gap:7px;border:1px solid var(--rule);background:transparent;color:var(--pri);padding:9px 13px;cursor:pointer;font-size:12px;font-weight:600;white-space:nowrap" style-hover="background:var(--priSoft)">
+<svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 4.5h13M3.5 10h13M3.5 15.5h13"></path></svg>
+Aller à
+</button>
+</div>
+<div style="display:flex;gap:0;margin-top:20px;border-bottom:1px solid var(--rule)">
+<button onClick="{{ f.sortNum }}" style="border:none;background:transparent;padding:0 0 10px;margin-right:22px;cursor:pointer;font-size:12.5px;font-weight:600;letter-spacing:.3px;color:{{ f.sortNumColor }};border-bottom:2px solid {{ f.sortNumRule }};margin-bottom:-1px">Par numéro</button>
+<button onClick="{{ f.sortAlpha }}" style="border:none;background:transparent;padding:0 0 10px;cursor:pointer;font-size:12.5px;font-weight:600;letter-spacing:.3px;color:{{ f.sortAlphaColor }};border-bottom:2px solid {{ f.sortAlphaRule }};margin-bottom:-1px">A → Z</button>
+</div>
+</div>
+<div style="padding:0 42px 0 14px">
+<sc-for list="{{ f.rows }}" as="r" hint-placeholder-count="9">
+<button onClick="{{ r.open }}" style="width:100%;display:flex;gap:14px;align-items:baseline;padding:14px 0;border:none;border-bottom:1px solid var(--ruleSoft);background:transparent;cursor:pointer;text-align:left;color:var(--ink)" style-hover="background:var(--priSoft)">
+<span style="flex:none;width:44px;text-align:right;font-family:Newsreader,serif;font-size:{{ numSize }};color:var(--pri);line-height:1">{{ r.n }}</span>
+<span style="flex:1;min-width:0">
+<span style="display:block;font-size:12.5px;font-weight:600;line-height:1.34;letter-spacing:.4px">{{ r.title }}</span>
+<span style="display:block;font-family:Newsreader,serif;font-size:13px;color:var(--ink3);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ r.first }}</span>
+</span>
+<sc-if value="{{ r.fav }}">
+<span style="flex:none;color:var(--pri);display:flex;align-items:center">
+<svg width="13" height="13" viewBox="0 0 20 20" fill="currentColor"><path d="M5.5 3.2h9v13.6L10 13l-4.5 3.8z"></path></svg>
+</span>
+</sc-if>
+</button>
+</sc-for>
+</div>
+<div style="position:absolute;right:13px;top:176px;display:flex;flex-direction:column;gap:10px;align-items:center">
+<sc-for list="{{ f.decades }}" as="d" hint-placeholder-count="7">
+<button onClick="{{ d.go }}" style="border:none;background:transparent;padding:2px;cursor:pointer;font-family:Newsreader,serif;font-size:11px;color:{{ d.color }}">{{ d.label }}</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ f.isLecture }}">
+<div style="position:absolute;inset:50px 0 0;display:flex;flex-direction:column">
+<div style="flex:none;display:flex;align-items:center;gap:12px;padding:6px 26px 14px">
+<button onClick="{{ f.back }}" aria-label="Retour" style="width:30px;height:30px;flex:none;border:none;background:transparent;padding:0;cursor:pointer;color:var(--ink2);display:flex;align-items:center;justify-content:center" style-hover="color:var(--pri)">
+<svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11.5 4.5 6 10l5.5 5.5"></path></svg>
+</button>
+<span style="flex:1;min-width:0;font-size:10.5px;font-weight:600;letter-spacing:1.8px;color:var(--ink3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ f.runningHead }}</span>
+<button onClick="{{ f.toggleFav }}" aria-label="Signet" style="width:30px;height:30px;flex:none;border:none;background:transparent;padding:0;cursor:pointer;color:{{ f.favColor }};display:flex;align-items:center;justify-content:center">
+<svg width="17" height="17" viewBox="0 0 20 20" fill="{{ f.favFill }}" stroke="currentColor" stroke-width="1.4"><path d="M5.5 3.2h9v13.6L10 13l-4.5 3.8z"></path></svg>
+</button>
+<button onClick="{{ f.openMore }}" aria-label="Plus" style="width:30px;height:30px;flex:none;border:none;background:transparent;padding:0;cursor:pointer;color:var(--ink2);display:flex;align-items:center;justify-content:center" style-hover="color:var(--pri)">
+<svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><circle cx="4.6" cy="10" r="1.3"></circle><circle cx="10" cy="10" r="1.3"></circle><circle cx="15.4" cy="10" r="1.3"></circle></svg>
+</button>
+</div>
+
+<div data-read-scroll ref="{{ f.readRef }}" style="position:relative;flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding:0 30px 26px;scrollbar-width:none;-ms-overflow-style:none">
+<div style="padding-bottom:6px">
+<div style="font-family:Newsreader,serif;font-size:56px;line-height:.88;color:var(--pri);letter-spacing:-2.4px">{{ f.songNum }}</div>
+<div style="font-family:Newsreader,serif;font-size:22px;line-height:1.24;letter-spacing:.3px;margin-top:16px">{{ f.songTitle }}</div>
+<div style="height:1px;width:48px;background:var(--or);margin-top:20px"></div>
+</div>
+<sc-for list="{{ f.blocks }}" as="b" hint-placeholder-count="5">
+<sc-if value="{{ b.isVerse }}">
+<div style="display:flex;gap:15px;margin-top:24px">
+<sc-if value="{{ showNums }}" hint-placeholder-val="{{ true }}">
+<span style="flex:none;width:13px;font-family:Newsreader,serif;font-size:12.5px;color:var(--pri);padding-top:5px;letter-spacing:.5px">{{ b.num }}</span>
+</sc-if>
+<span style="flex:1;min-width:0;display:block">
+<sc-for list="{{ b.lines }}" as="ln" hint-placeholder-count="4">
+<span style="display:block;font-family:Newsreader,serif;font-size:{{ lyricSize }};line-height:{{ lyricLead }};color:var(--ink);font-weight:400">{{ ln }}</span>
+</sc-for>
+</span>
+</div>
+</sc-if>
+<sc-if value="{{ b.isRefrain }}">
+<div style="margin:26px 0 4px;padding:18px 0;border-top:1px solid var(--or);border-bottom:1px solid var(--or);text-align:center">
+<sc-for list="{{ b.lines }}" as="ln" hint-placeholder-count="3">
+<span style="display:block;font-family:Newsreader,serif;font-style:{{ refrainStyle }};font-size:{{ lyricSize }};line-height:{{ lyricLead }};color:var(--ink)">{{ ln }}</span>
+</sc-for>
+</div>
+</sc-if>
+</sc-for>
+</div>
+
+<div style="flex:none;padding:12px 30px 0">
+<div style="height:1px;background:var(--ruleSoft)"></div>
+<div style="font-size:10.5px;letter-spacing:1.4px;color:var(--ink3);margin-top:10px">{{ f.partLabel }}</div>
+</div>
+
+<div style="flex:none;height:92px;display:flex;align-items:center;justify-content:center;gap:10px">
+<button onClick="{{ f.prevSong }}" style="display:flex;align-items:center;gap:8px;border:1px solid var(--rule);background:var(--blur);backdrop-filter:blur(12px);padding:11px 15px;cursor:pointer;color:var(--ink2);font-size:12px;font-weight:600" style-hover="color:var(--pri);border-color:var(--pri)">
+<svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M11.5 4.5 6 10l5.5 5.5"></path></svg>
+{{ f.prevNum }}
+</button>
+<button onClick="{{ f.openGoto }}" aria-label="Aller à un chant" style="display:flex;align-items:center;gap:9px;border:1px solid var(--rule);background:var(--blur);backdrop-filter:blur(12px);padding:11px 17px;cursor:pointer;color:var(--pri);font-family:Newsreader,serif;font-size:16px" style-hover="border-color:var(--pri)">
+<svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.4" y="4.4" width="13.2" height="11.2"></rect><path d="M3.4 8.2h13.2M8.2 8.2v7.4"></path></svg>
+{{ f.songNum }}
+</button>
+<button onClick="{{ f.nextSong }}" style="display:flex;align-items:center;gap:8px;border:1px solid var(--rule);background:var(--blur);backdrop-filter:blur(12px);padding:11px 15px;cursor:pointer;color:var(--ink2);font-size:12px;font-weight:600" style-hover="color:var(--pri);border-color:var(--pri)">
+{{ f.nextNum }}
+<svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8.5 4.5 14 10l-5.5 5.5"></path></svg>
+</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ f.isChoeurs }}">
+<div style="position:absolute;inset:50px 0 0;overflow:hidden">
+<div style="padding:8px 28px 0">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px">
+<div>
+<div style="font-family:Newsreader,serif;font-size:34px;letter-spacing:-1px;line-height:1">Chœurs</div>
+<div style="font-size:11.5px;color:var(--ink3);margin-top:7px">85 chœurs · classés par lettre</div>
+</div>
+<button onClick="{{ f.openGoto }}" style="display:flex;align-items:center;gap:7px;border:1px solid var(--rule);background:transparent;color:var(--pri);padding:9px 13px;cursor:pointer;font-size:12px;font-weight:600;white-space:nowrap" style-hover="background:var(--priSoft)">
+<svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.4" y="4.4" width="13.2" height="11.2"></rect><path d="M3.4 8.2h13.2M8.2 8.2v7.4"></path></svg>
+Aller à
+</button>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:20px;padding-bottom:18px;border-bottom:1px solid var(--rule)">
+<sc-for list="{{ f.letters }}" as="l" hint-placeholder-count="14">
+<button onClick="{{ l.go }}" style="width:28px;height:28px;border:none;background:{{ l.bg }};color:{{ l.color }};cursor:pointer;font-family:Newsreader,serif;font-size:14px;padding:0">{{ l.label }}</button>
+</sc-for>
+</div>
+</div>
+<div style="padding:4px 28px 0;display:flex;gap:18px">
+<div style="flex:none;width:34px;font-family:Newsreader,serif;font-size:52px;line-height:1;color:var(--priSoft);padding-top:12px">{{ f.letter }}</div>
+<div style="flex:1;min-width:0">
+<sc-for list="{{ f.choeurs }}" as="c" hint-placeholder-count="5">
+<div style="padding:16px 0;border-bottom:1px solid var(--ruleSoft)">
+<div style="display:flex;align-items:baseline;gap:12px">
+<span style="flex:1;min-width:0;font-family:Newsreader,serif;font-size:17px;line-height:1.34;color:var(--ink)">{{ c.head }}</span>
+<span style="flex:none;font-size:10.5px;letter-spacing:1.2px;color:var(--ink3)">{{ c.tag }}</span>
+</div>
+<sc-for list="{{ c.rest }}" as="ln" hint-placeholder-count="2">
+<div style="font-family:Newsreader,serif;font-size:15.5px;line-height:1.46;color:var(--ink2)">{{ ln }}</div>
+</sc-for>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ f.isRecherche }}">
+<div style="position:absolute;inset:50px 0 0;overflow:hidden">
+<div style="padding:10px 28px 0">
+<div style="display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--pri);padding-bottom:12px">
+<svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="var(--pri)" stroke-width="1.5" style="flex:none"><circle cx="9" cy="9" r="5.4"></circle><path d="M13.2 13.2 17 17"></path></svg>
+<input value="{{ f.q }}" onChange="{{ f.onQuery }}" placeholder="Titre, parole ou numéro" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font-size:17px;color:var(--ink);padding:0">
+<button onClick="{{ f.clear }}" aria-label="Effacer" style="flex:none;width:24px;height:24px;border:none;background:transparent;cursor:pointer;color:var(--ink3);padding:0;display:flex;align-items:center;justify-content:center">
+<svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9"></path></svg>
+</button>
+</div>
+<div style="font-size:11px;letter-spacing:1.4px;color:var(--ink3);margin-top:14px">{{ f.resultMeta }}</div>
+</div>
+<div style="padding:6px 28px 0">
+<sc-if value="{{ f.isNumeric }}">
+<button onClick="{{ f.openTyped }}" style="width:100%;display:flex;align-items:center;gap:16px;padding:16px 0;border:none;border-bottom:1px solid var(--rule);background:transparent;cursor:pointer;text-align:left;color:var(--ink)">
+<span style="font-family:Newsreader,serif;font-size:38px;line-height:1;color:var(--pri);letter-spacing:-1.4px">{{ f.q }}</span>
+<span style="flex:1;min-width:0">
+<span style="display:block;font-size:10px;font-weight:600;letter-spacing:1.8px;color:var(--ink3)">ALLER DIRECTEMENT AU CHANT</span>
+<span style="display:block;font-family:Newsreader,serif;font-size:17px;margin-top:4px;line-height:1.2">{{ f.numericTitle }}</span>
+</span>
+</button>
+</sc-if>
+<sc-for list="{{ f.results }}" as="r" hint-placeholder-count="6">
+<button onClick="{{ r.open }}" style="width:100%;display:flex;gap:15px;align-items:baseline;padding:14px 0;border:none;border-bottom:1px solid var(--ruleSoft);background:transparent;cursor:pointer;text-align:left;color:var(--ink)" style-hover="background:var(--priSoft)">
+<span style="flex:none;width:32px;text-align:right;font-family:Newsreader,serif;font-size:17px;color:var(--pri)">{{ r.n }}</span>
+<span style="flex:1;min-width:0">
+<span style="display:block;font-size:13.5px;font-weight:500;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ r.title }}</span>
+<span style="display:block;font-family:Newsreader,serif;font-size:13.5px;line-height:1.4;color:var(--ink3);margin-top:4px">{{ r.pre }}<span style="color:var(--pri);background:var(--priSoft)">{{ r.hit }}</span>{{ r.post }}</span>
+</span>
+</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ f.isSignets }}">
+<div style="position:absolute;inset:50px 0 0;overflow:hidden">
+<div style="padding:8px 28px 0">
+<div style="font-family:Newsreader,serif;font-size:34px;letter-spacing:-1px;line-height:1">Favoris</div>
+<div style="font-size:11.5px;color:var(--ink3);margin-top:7px">{{ favMeta }}</div>
+</div>
+<div style="padding:22px 28px 0">
+<sc-for list="{{ f.favRows }}" as="r" hint-placeholder-count="5">
+<div style="display:flex;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--ruleSoft)">
+<button onClick="{{ r.open }}" style="flex:1;min-width:0;display:flex;gap:16px;align-items:baseline;border:none;background:transparent;padding:0;cursor:pointer;text-align:left;color:var(--ink)">
+<span style="flex:none;width:40px;text-align:right;font-family:Newsreader,serif;font-size:26px;color:var(--pri);line-height:1;letter-spacing:-.8px">{{ r.n }}</span>
+<span style="flex:1;min-width:0">
+<span style="display:block;font-family:Newsreader,serif;font-size:15.5px;line-height:1.28;letter-spacing:.3px">{{ r.title }}</span>
+<span style="display:block;font-size:11.5px;color:var(--ink3);margin-top:5px">{{ r.meta }}</span>
+</span>
+</button>
+<button onClick="{{ r.remove }}" aria-label="Retirer" style="flex:none;width:26px;height:26px;border:none;background:transparent;cursor:pointer;color:var(--ink3);padding:0;display:flex;align-items:center;justify-content:center" style-hover="color:var(--pri)">
+<svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9"></path></svg>
+</button>
+</div>
+</sc-for>
+<sc-if value="{{ f.favEmpty }}">
+<div style="padding:70px 0 0;text-align:center">
+<div style="font-family:Newsreader,serif;font-size:22px;color:var(--ink2);line-height:1.3">Aucun favori</div>
+<div style="font-size:13px;color:var(--ink3);margin-top:10px;line-height:1.6">Touchez le signet en haut d’un chant<br>pour le garder ici.</div>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ f.isReglages }}">
+<div style="position:absolute;inset:50px 0 100px;overflow:hidden">
+<div style="padding:8px 28px 0;display:flex;align-items:flex-end;justify-content:space-between;gap:14px">
+<div style="font-family:Newsreader,serif;font-size:34px;letter-spacing:-1px;line-height:1">Réglages</div>
+<button onClick="{{ f.goApropos }}" style="flex:none;border:none;background:transparent;padding:0 0 5px;cursor:pointer;color:var(--pri);font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:6px" style-hover="gap:11px">À propos<svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 4.5 13.5 10 8 15.5"></path></svg></button>
+</div>
+<div style="margin:16px 28px 0;padding:15px 18px;background:var(--surf2);border-top:1px solid var(--or)">
+<div style="font-size:9.5px;font-weight:600;letter-spacing:1.8px;color:var(--ink3)">APERÇU</div>
+<div style="margin-top:12px">
+<sc-for list="{{ specimen }}" as="ln" hint-placeholder-count="3">
+<div style="font-family:Newsreader,serif;font-size:{{ lyricSize }};line-height:{{ lyricLead }};color:var(--ink)">{{ ln }}</div>
+</sc-for>
+</div>
+</div>
+<div style="padding:0 28px">
+<div style="padding:18px 0 14px;border-bottom:1px solid var(--ruleSoft)">
+<div style="display:flex;align-items:center;justify-content:space-between">
+<span style="font-size:14px;font-weight:500">Taille du texte</span>
+<span style="font-size:11.5px;color:var(--ink3)">{{ sizeLabel }}</span>
+</div>
+<div style="display:flex;align-items:center;gap:14px;margin-top:14px">
+<button onClick="{{ sizeDown }}" style="width:40px;height:40px;flex:none;border:1px solid var(--rule);background:transparent;cursor:pointer;color:var(--ink);font-family:Newsreader,serif;font-size:15px" style-hover="border-color:var(--pri);color:var(--pri)">A</button>
+<div style="flex:1;display:flex;align-items:center;gap:0">
+<sc-for list="{{ sizeTicks }}" as="t" hint-placeholder-count="5">
+<span style="flex:1;height:2px;background:{{ t.bg }};margin-right:3px"></span>
+</sc-for>
+</div>
+<button onClick="{{ sizeUp }}" style="width:40px;height:40px;flex:none;border:1px solid var(--rule);background:transparent;cursor:pointer;color:var(--ink);font-family:Newsreader,serif;font-size:23px" style-hover="border-color:var(--pri);color:var(--pri)">A</button>
+</div>
+</div>
+
+<div style="padding:15px 0;border-bottom:1px solid var(--ruleSoft)">
+<div style="font-size:14px;font-weight:500">Thème</div>
+<div style="display:flex;gap:0;margin-top:13px;border:1px solid var(--rule)">
+<sc-for list="{{ themes }}" as="t" hint-placeholder-count="3">
+<button onClick="{{ t.go }}" style="flex:1;padding:11px 0;border:none;border-right:1px solid var(--rule);background:{{ t.bg }};color:{{ t.color }};cursor:pointer;font-size:12.5px;font-weight:600">{{ t.label }}</button>
+</sc-for>
+</div>
+</div>
+
+<div style="padding:15px 0;border-bottom:1px solid var(--ruleSoft)">
+<div style="font-size:14px;font-weight:500">Interligne</div>
+<div style="display:flex;gap:0;margin-top:13px;border:1px solid var(--rule)">
+<sc-for list="{{ modes }}" as="m" hint-placeholder-count="3">
+<button onClick="{{ m.go }}" style="flex:1;padding:11px 0;border:none;border-right:1px solid var(--rule);background:{{ m.bg }};color:{{ m.color }};cursor:pointer;font-size:12.5px;font-weight:600">{{ m.label }}</button>
+</sc-for>
+</div>
+</div>
+
+<sc-for list="{{ toggles }}" as="t" hint-placeholder-count="3">
+<button onClick="{{ t.go }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0;border:none;border-bottom:1px solid var(--ruleSoft);background:transparent;cursor:pointer;text-align:left;color:var(--ink)">
+<span style="flex:1;min-width:0">
+<span style="display:block;font-size:14px;font-weight:500">{{ t.label }}</span>
+<span style="display:block;font-size:11.5px;color:var(--ink3);margin-top:3px">{{ t.hint }}</span>
+</span>
+<span style="flex:none;width:44px;height:24px;border:1px solid {{ t.track }};background:{{ t.trackBg }};position:relative;display:block">
+<span style="position:absolute;top:3px;left:{{ t.knob }};width:16px;height:16px;background:{{ t.knobBg }};transition:left .2s cubic-bezier(.2,.8,.16,1)"></span>
+</span>
+</button>
+</sc-for>
+
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:14px 0 0">
+<span><span style="display:block;font-size:14px;font-weight:500">Disponible hors connexion</span><span style="display:block;font-size:11.5px;color:var(--ink3);margin-top:3px">302 cantiques · 85 chœurs · 4,1 Mo</span></span>
+<span style="font-family:Newsreader,serif;font-size:15px;color:var(--pri);flex:none">Tout</span>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ f.isApropos }}">
+<div style="position:absolute;inset:50px 0 0;overflow:hidden">
+<div style="padding:8px 28px 0;display:flex;align-items:center;gap:12px">
+<button onClick="{{ f.goReglages }}" aria-label="Retour" style="width:30px;height:30px;flex:none;border:none;background:transparent;padding:0;cursor:pointer;color:var(--ink2);display:flex;align-items:center;justify-content:center">
+<svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11.5 4.5 6 10l5.5 5.5"></path></svg>
+</button>
+<span style="font-size:10.5px;font-weight:600;letter-spacing:1.8px;color:var(--ink3)">À PROPOS</span>
+</div>
+<div style="padding:20px 28px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;border-bottom:1px solid var(--rule)">
+<svg width="66" height="66" viewBox="0 0 240 240" fill="none">
+<rect x="44" y="18" width="152" height="204" rx="9" fill="var(--pri)"></rect>
+<path d="M62 18 H53 a9 9 0 0 0 -9 9 V213 a9 9 0 0 0 9 9 h9 Z" fill="var(--priDeep)"></path>
+<rect x="107" y="58.4" width="42" height="2.4" fill="#F0C069"></rect>
+<text x="130" y="90" text-anchor="middle" fill="#FFFFFF" font-family="Newsreader, serif" font-size="19.5" font-weight="600" letter-spacing="3.7">RECUEIL</text>
+<text x="129" y="108" text-anchor="middle" fill="#FFFFFF" font-family="Newsreader, serif" font-size="7.6" font-weight="500" letter-spacing="2.4">DE</text>
+<text x="130" y="130.5" text-anchor="middle" fill="#FFFFFF" font-family="Newsreader, serif" font-size="19.5" font-weight="600" letter-spacing="3.7">CHANTS</text>
+<rect x="107" y="145" width="42" height="2.4" fill="#F0C069"></rect>
+<circle cx="173" cy="43" r="19.5" fill="#F0C069"></circle>
+<text x="173.5" y="50" text-anchor="middle" fill="#381E63" font-family="Newsreader, serif" font-size="19" font-weight="600" letter-spacing="1">III</text>
+</svg>
+<div style="font-family:Newsreader,serif;font-size:26px;letter-spacing:-.6px;margin-top:18px">Recueil de Chants</div>
+<div style="display:flex;align-items:center;gap:10px;margin-top:11px">
+<span style="width:18px;height:1px;background:var(--or)"></span>
+<span style="font-size:10px;font-weight:600;letter-spacing:2.4px;color:var(--pri)">TROISIÈME ÉDITION</span>
+<span style="width:18px;height:1px;background:var(--or)"></span>
+</div>
+</div>
+<div style="padding:0 28px">
+<sc-for list="{{ aboutGroups }}" as="g" hint-placeholder-count="3">
+<div style="padding-top:16px">
+<div style="font-size:9.5px;font-weight:600;letter-spacing:1.8px;color:var(--ink3);padding-bottom:7px;border-bottom:1px solid var(--rule)">{{ g.label }}</div>
+<sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="4">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:10px 0;border-bottom:1px solid var(--ruleSoft)">
+<span style="font-size:12.5px;color:var(--ink2);flex:none">{{ r.label }}</span>
+<sc-if value="{{ r.plain }}" hint-placeholder-val="{{ true }}">
+<span style="font-size:13.5px;font-weight:500;text-align:right;line-height:1.5">{{ r.value }}</span>
+</sc-if>
+<sc-if value="{{ r.isMail }}">
+<span style="font-size:13px;font-weight:500;text-align:right;color:var(--pri);line-height:1.5">{{ r.value }}</span>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</sc-for>
+<div style="font-size:10px;color:var(--ink3);margin-top:22px;letter-spacing:1.2px;text-align:center">© TOUS DROITS RÉSERVÉS</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ f.sheetGoto }}">
+<div style="position:absolute;inset:0;background:rgba(23,19,31,.42);z-index:8;animation:rc3Fade .22s both">
+<button onClick="{{ f.closeSheet }}" aria-label="Fermer" style="position:absolute;inset:0;border:none;background:transparent;cursor:pointer"></button>
+<div style="position:absolute;left:0;right:0;bottom:0;background:var(--paper);border-top:1px solid var(--rule);padding:22px 26px 30px;animation:rc3Sheet .34s cubic-bezier(.2,.8,.16,1) both">
+<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+<div>
+<div style="font-size:10px;font-weight:600;letter-spacing:2px;color:var(--ink3)">ALLER À UN CHANT</div>
+<div style="display:flex;align-items:baseline;gap:14px;margin-top:12px">
+<span style="font-family:Newsreader,serif;font-size:46px;line-height:1;color:var(--pri);letter-spacing:-2px">{{ f.typed }}</span>
+<span style="font-family:Newsreader,serif;font-size:17px;line-height:1.24;color:var(--ink2);flex:1;min-width:0">{{ f.typedTitle }}</span>
+</div>
+</div>
+<button onClick="{{ f.closeSheet }}" aria-label="Fermer" style="flex:none;width:30px;height:30px;border:none;background:transparent;cursor:pointer;color:var(--ink3);padding:0">
+<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9"></path></svg>
+</button>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);margin-top:22px;border:1px solid var(--rule)">
+<sc-for list="{{ f.keys }}" as="k" hint-placeholder-count="12">
+<button onClick="{{ k.press }}" style="height:56px;border:none;background:var(--paper);cursor:pointer;color:{{ k.color }};font-family:Newsreader,serif;font-size:{{ k.size }}" style-hover="background:var(--priSoft)">{{ k.label }}</button>
+</sc-for>
+</div>
+<button onClick="{{ f.confirmGoto }}" style="width:100%;margin-top:14px;padding:16px 0;border:none;background:var(--pri);color:var(--onPri);cursor:pointer;font-size:14px;font-weight:600;letter-spacing:.3px">Ouvrir le chant</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ f.sheetMore }}">
+<div style="position:absolute;inset:0;background:rgba(23,19,31,.42);z-index:8;animation:rc3Fade .22s both">
+<button onClick="{{ f.closeSheet }}" aria-label="Fermer" style="position:absolute;inset:0;border:none;background:transparent;cursor:pointer"></button>
+<div style="position:absolute;left:0;right:0;bottom:0;background:var(--paper);border-top:1px solid var(--rule);padding:22px 0 26px;animation:rc3Sheet .34s cubic-bezier(.2,.8,.16,1) both">
+<div style="padding:0 26px 6px;display:flex;align-items:baseline;gap:12px">
+<span style="font-family:Newsreader,serif;font-size:20px;color:var(--pri)">{{ f.songNum }}</span>
+<span style="font-size:12.5px;color:var(--ink3);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ f.songTitle }}</span>
+</div>
+<sc-for list="{{ f.moreItems }}" as="m" hint-placeholder-count="4">
+<button onClick="{{ m.go }}" style="width:100%;display:flex;align-items:center;gap:14px;padding:16px 26px;border:none;border-top:1px solid var(--ruleSoft);background:transparent;cursor:pointer;text-align:left;color:var(--ink);font-size:14.5px;font-weight:500" style-hover="background:var(--priSoft)">
+<span style="flex:none;width:20px;color:var(--pri);display:flex;align-items:center;justify-content:center;font-family:Newsreader,serif;font-size:15px">{{ m.mark }}</span>
+{{ m.label }}
+</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ f.showNav }}">
+<div style="position:absolute;left:50%;bottom:24px;transform:translateX(-50%);display:flex;align-items:center;gap:3px;padding:8px;border:1px solid var(--rule);border-radius:100px;background:var(--blur);backdrop-filter:blur(16px);z-index:6">
+<sc-for list="{{ f.navLeft }}" as="t" hint-placeholder-count="2">
+<button onClick="{{ t.go }}" aria-label="{{ t.label }}" style="width:46px;height:46px;border:none;border-radius:100px;background:transparent;cursor:pointer;color:{{ t.color }};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0">
+<span style="display:flex" data-nav-icon="{{ t.key }}">
+<sc-if value="{{ t.isHome }}">
+<svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.4 8.7 10 3.2l6.6 5.5V17h-4.2v-5.2H7.6V17H3.4z"></path></svg>
+</sc-if>
+<sc-if value="{{ t.isList }}">
+<svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 5.5h13M3.5 10h13M3.5 14.5h8"></path></svg>
+</sc-if>
+</span>
+<span style="width:3px;height:3px;border-radius:50%;background:{{ t.dot }}"></span>
+</button>
+</sc-for>
+<button onClick="{{ f.goRecherche }}" aria-label="Recherche" style="width:54px;height:54px;border:none;border-radius:100px;background:var(--pri);color:var(--onPri);cursor:pointer;display:flex;align-items:center;justify-content:center;margin:0 2px;padding:0" style-hover="background:var(--priDeep)">
+<svg width="21" height="21" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.4"></circle><path d="M13.2 13.2 17 17"></path></svg>
+</button>
+<sc-for list="{{ f.navRight }}" as="t" hint-placeholder-count="2">
+<button onClick="{{ t.go }}" aria-label="{{ t.label }}" style="width:46px;height:46px;border:none;border-radius:100px;background:transparent;cursor:pointer;color:{{ t.color }};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0">
+<span style="display:flex">
+<sc-if value="{{ t.isChoir }}">
+<svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7.6 14.2V4.8l8.4-1.6v9"></path><ellipse cx="5.4" cy="14.6" rx="2.2" ry="1.9"></ellipse><ellipse cx="13.8" cy="13" rx="2.2" ry="1.9"></ellipse></svg>
+</sc-if>
+<sc-if value="{{ t.isMark }}">
+<svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5.5 3.4h9v13.4L10 13.1l-4.5 3.7z"></path></svg>
+</sc-if>
+</span>
+<span style="width:3px;height:3px;border-radius:50%;background:{{ t.dot }}"></span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+
+</div>
+</div>
+</sc-for>
+</div>
+
+<div style="border-top:1px solid #D9D3C9;padding-top:34px">
+<div style="font-size:10.5px;font-weight:600;letter-spacing:2.4px;color:#6E687C">DESIGN SYSTEM</div>
+<div style="font-family:Newsreader,serif;font-size:34px;letter-spacing:-1px;margin-top:10px">Les règles derrière les écrans</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px">
+
+<div style="background:#fff;border:1px solid #E4DFD6;padding:30px 32px">
+<div style="font-size:10px;font-weight:600;letter-spacing:1.8px;color:#6E687C">01 · PALETTE — MODE CLAIR</div>
+<div style="margin-top:18px">
+<div style="display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid #F1EDE6"><span style="width:34px;height:34px;background:#4E2A84;flex:none"></span><span style="flex:1;font-size:13.5px;font-weight:500">Violet royal — actions, chiffres, actif</span><span style="font-size:11.5px;color:#6E687C">#4E2A84</span></div>
+<div style="display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid #F1EDE6"><span style="width:34px;height:34px;background:#381E63;flex:none"></span><span style="flex:1;font-size:13.5px;font-weight:500">Violet reliure — pression, hover</span><span style="font-size:11.5px;color:#6E687C">#381E63</span></div>
+<div style="display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid #F1EDE6"><span style="width:34px;height:34px;background:#F3EEFB;flex:none"></span><span style="flex:1;font-size:13.5px;font-weight:500">Violet papier — surlignage de résultat</span><span style="font-size:11.5px;color:#6E687C">#F3EEFB</span></div>
+<div style="display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid #F1EDE6"><span style="width:34px;height:34px;background:#F0C069;flex:none"></span><span style="flex:1;font-size:13.5px;font-weight:500">Or — refrains et filets de marque</span><span style="font-size:11.5px;color:#6E687C">#F0C069</span></div>
+<div style="display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid #F1EDE6"><span style="width:34px;height:34px;background:#FBFAF7;border:1px solid #E4DFD6;flex:none"></span><span style="flex:1;font-size:13.5px;font-weight:500">Papier — fond de toutes les pages</span><span style="font-size:11.5px;color:#6E687C">#FBFAF7</span></div>
+<div style="display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid #F1EDE6"><span style="width:34px;height:34px;background:#17131F;flex:none"></span><span style="flex:1;font-size:13.5px;font-weight:500">Encre — paroles et titres</span><span style="font-size:11.5px;color:#6E687C">#17131F</span></div>
+<div style="display:flex;align-items:center;gap:14px;padding:11px 0"><span style="width:34px;height:34px;background:#E4DFD6;flex:none"></span><span style="flex:1;font-size:13.5px;font-weight:500">Filet — 1 px, seule séparation autorisée</span><span style="font-size:11.5px;color:#6E687C">#E4DFD6</span></div>
+</div>
+</div>
+
+<div style="background:#141019;border:1px solid #2C2439;padding:30px 32px">
+<div style="font-size:10px;font-weight:600;letter-spacing:1.8px;color:#8B8399">01 · PALETTE — MODE SOMBRE</div>
+<div style="margin-top:18px">
+<div style="display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid #221B2E"><span style="width:34px;height:34px;background:#B79AE6;flex:none"></span><span style="flex:1;font-size:13.5px;font-weight:500;color:#F5F2F8">Violet clair — actions sur encre</span><span style="font-size:11.5px;color:#8B8399">#B79AE6</span></div>
+<div style="display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid #221B2E"><span style="width:34px;height:34px;background:#251D36;flex:none"></span><span style="flex:1;font-size:13.5px;font-weight:500;color:#F5F2F8">Violet nuit — surlignage</span><span style="font-size:11.5px;color:#8B8399">#251D36</span></div>
+<div style="display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid #221B2E"><span style="width:34px;height:34px;background:#141019;border:1px solid #2C2439;flex:none"></span><span style="flex:1;font-size:13.5px;font-weight:500;color:#F5F2F8">Encre profonde — fond</span><span style="font-size:11.5px;color:#8B8399">#141019</span></div>
+<div style="display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid #221B2E"><span style="width:34px;height:34px;background:#F5F2F8;flex:none"></span><span style="flex:1;font-size:13.5px;font-weight:500;color:#F5F2F8">Papier inversé — paroles</span><span style="font-size:11.5px;color:#8B8399">#F5F2F8</span></div>
+<div style="display:flex;align-items:center;gap:14px;padding:11px 0"><span style="width:34px;height:34px;background:#2C2439;flex:none"></span><span style="flex:1;font-size:13.5px;font-weight:500;color:#F5F2F8">Filet nuit</span><span style="font-size:11.5px;color:#8B8399">#2C2439</span></div>
+<div style="font-size:12.5px;color:#ADA5BB;line-height:1.6;margin-top:18px;text-wrap:pretty">L’or ne change pas entre les deux modes : c’est la constante de la marque. Le violet, lui, s’éclaircit pour garder 7:1 de contraste sur l’encre profonde.</div>
+</div>
+</div>
+
+<div style="background:#fff;border:1px solid #E4DFD6;padding:30px 32px">
+<div style="font-size:10px;font-weight:600;letter-spacing:1.8px;color:#6E687C">02 · TYPOGRAPHIE</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #F1EDE6;padding:20px 0 14px">
+<span style="font-family:Newsreader,serif;font-size:44px;letter-spacing:-1.4px;line-height:1">Recueil</span>
+<span style="font-size:11.5px;color:#6E687C;text-align:right">Newsreader 400<br>44 / 44 · −1,4 px</span>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #F1EDE6;padding:16px 0 14px">
+<span style="font-family:Newsreader,serif;font-size:34px;letter-spacing:-1px;line-height:1">Cantiques</span>
+<span style="font-size:11.5px;color:#6E687C;text-align:right">Titre d’écran<br>34 / 34</span>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #F1EDE6;padding:16px 0 14px">
+<span style="font-family:Newsreader,serif;font-size:19.5px;line-height:1.62">Que Jésus bénisse votre foyer.</span>
+<span style="font-size:11.5px;color:#6E687C;text-align:right">Paroles<br>19,5 / 31,6</span>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #F1EDE6;padding:16px 0 14px">
+<span style="font-family:Newsreader,serif;font-style:italic;font-size:19.5px;line-height:1.62">Refrain en italique, centré</span>
+<span style="font-size:11.5px;color:#6E687C;text-align:right">Refrain<br>italique 400</span>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #F1EDE6;padding:16px 0 14px">
+<span style="font-size:14px;font-weight:500">Titre de ligne d’index</span>
+<span style="font-size:11.5px;color:#6E687C;text-align:right">Archivo 500<br>14 / 18</span>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding:16px 0 0">
+<span style="font-size:10px;font-weight:600;letter-spacing:2px;color:#6E687C">SURTITRE · 10 / 2 PX</span>
+<span style="font-size:11.5px;color:#6E687C;text-align:right">Archivo 600<br>capitales, +2 px</span>
+</div>
+<div style="font-size:12.5px;color:#5A5566;line-height:1.65;margin-top:20px;border-top:1px solid #E4DFD6;padding-top:16px;text-wrap:pretty">Une règle simple : <strong style="font-weight:600">Newsreader dès qu’il s’agit du recueil</strong> (chiffres, titres, paroles), <strong style="font-weight:600">Archivo dès qu’il s’agit de l’application</strong> (libellés, réglages, index). Jamais l’inverse.</div>
+</div>
+
+<div style="background:#fff;border:1px solid #E4DFD6;padding:30px 32px">
+<div style="font-size:10px;font-weight:600;letter-spacing:1.8px;color:#6E687C">03 · GRILLE ET ESPACEMENTS</div>
+<div style="display:flex;gap:26px;margin-top:20px">
+<div style="width:150px;flex:none;height:230px;border:1px solid #E4DFD6;position:relative;background:#FBFAF7">
+<span style="position:absolute;left:28px;top:0;bottom:0;width:1px;background:#F0C069;opacity:.6"></span>
+<span style="position:absolute;right:28px;top:0;bottom:0;width:1px;background:#F0C069;opacity:.6"></span>
+<span style="position:absolute;left:0;right:0;top:50px;height:1px;background:#E4DFD6"></span>
+<span style="position:absolute;left:0;right:0;bottom:92px;height:1px;background:#E4DFD6"></span>
+<span style="position:absolute;left:28px;right:28px;top:62px;height:8px;background:#4E2A84"></span>
+<span style="position:absolute;left:28px;right:52px;top:78px;height:6px;background:#E4DFD6"></span>
+<span style="position:absolute;left:28px;right:38px;top:90px;height:6px;background:#E4DFD6"></span>
+</div>
+<div style="flex:1;min-width:0">
+<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #F1EDE6;font-size:13px"><span style="color:#5A5566">Marge latérale</span><span style="font-weight:500">28 px</span></div>
+<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #F1EDE6;font-size:13px"><span style="color:#5A5566">Marge de lecture</span><span style="font-weight:500">30 px</span></div>
+<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #F1EDE6;font-size:13px"><span style="color:#5A5566">Barre d’état</span><span style="font-weight:500">50 px</span></div>
+<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #F1EDE6;font-size:13px"><span style="color:#5A5566">Échelle de base</span><span style="font-weight:500">4 px · 8 · 14 · 22 · 34</span></div>
+<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #F1EDE6;font-size:13px"><span style="color:#5A5566">Hauteur de ligne d’index</span><span style="font-weight:500">62 px</span></div>
+<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #F1EDE6;font-size:13px"><span style="color:#5A5566">Cible tactile minimale</span><span style="font-weight:500">46 px</span></div>
+<div style="display:flex;justify-content:space-between;padding:9px 0;font-size:13px"><span style="color:#5A5566">Rayon</span><span style="font-weight:500">0 — sauf la pilule (100 px)</span></div>
+<div style="font-size:12.5px;color:#5A5566;line-height:1.6;margin-top:16px;text-wrap:pretty">Aucun bloc n’a de fond coloré : la hiérarchie vient des filets, de l’échelle et du blanc. C’est ce qui interdit au produit de ressembler à un tableau de bord.</div>
+</div>
+</div>
+</div>
+
+<div style="background:#fff;border:1px solid #E4DFD6;padding:30px 32px">
+<div style="font-size:10px;font-weight:600;letter-spacing:1.8px;color:#6E687C">04 · ICÔNES — TRAIT 1,5 PX, GRILLE 20</div>
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:18px 10px;margin-top:22px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:9px"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#17131F" stroke-width="1.5"><path d="M3.4 8.7 10 3.2l6.6 5.5V17h-4.2v-5.2H7.6V17H3.4z"></path></svg><span style="font-size:10.5px;color:#6E687C">Accueil</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:9px"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#17131F" stroke-width="1.5"><path d="M3.5 5.5h13M3.5 10h13M3.5 14.5h8"></path></svg><span style="font-size:10.5px;color:#6E687C">Cantiques</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:9px"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#17131F" stroke-width="1.5"><path d="M7.6 14.2V4.8l8.4-1.6v9"></path><ellipse cx="5.4" cy="14.6" rx="2.2" ry="1.9"></ellipse><ellipse cx="13.8" cy="13" rx="2.2" ry="1.9"></ellipse></svg><span style="font-size:10.5px;color:#6E687C">Chœurs</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:9px"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#17131F" stroke-width="1.5"><circle cx="9" cy="9" r="5.4"></circle><path d="M13.2 13.2 17 17"></path></svg><span style="font-size:10.5px;color:#6E687C">Recherche</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:9px"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#17131F" stroke-width="1.5"><path d="M5.5 3.4h9v13.4L10 13.1l-4.5 3.7z"></path></svg><span style="font-size:10.5px;color:#6E687C">Signet</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:9px"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#17131F" stroke-width="1.5"><path d="M3.5 6.5h6M12.8 6.5h3.7M3.5 13.5h3.7M10.3 13.5h6.2"></path><circle cx="11" cy="6.5" r="1.7"></circle><circle cx="8" cy="13.5" r="1.7"></circle></svg><span style="font-size:10.5px;color:#6E687C">Réglages</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:9px"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#17131F" stroke-width="1.5"><path d="M11.5 4.5 6 10l5.5 5.5"></path></svg><span style="font-size:10.5px;color:#6E687C">Retour</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:9px"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#17131F" stroke-width="1.5"><path d="M10 3.4v9.4M6.6 6.6 10 3.2l3.4 3.4M4.4 12.6V17h11.2v-4.4"></path></svg><span style="font-size:10.5px;color:#6E687C">Partager</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:9px"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#17131F" stroke-width="1.5"><rect x="3.4" y="4.4" width="13.2" height="11.2"></rect><path d="M3.4 8.2h13.2M8.2 8.2v7.4"></path></svg><span style="font-size:10.5px;color:#6E687C">Aller à</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:9px"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#17131F" stroke-width="1.5"><path d="M4 5.5h8M4 10h12M4 14.5h6"></path><path d="M14.6 4.2v4.6M12.6 6.5h4"></path></svg><span style="font-size:10.5px;color:#6E687C">Taille</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:9px"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#17131F" stroke-width="1.5"><circle cx="10" cy="10" r="5.6"></circle><path d="M10 4.4v11.2" stroke-width="1.5"></path><path d="M10 4.4a5.6 5.6 0 0 1 0 11.2z" fill="#17131F" stroke="none"></path></svg><span style="font-size:10.5px;color:#6E687C">Thème</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:9px"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#17131F" stroke-width="1.5"><path d="M6.8 15.4a3.4 3.4 0 0 1 0-6.8 4.4 4.4 0 0 1 8.6-1 3 3 0 0 1-.4 5.9z"></path><path d="M4 4.6l12 11" stroke-width="1.3"></path></svg><span style="font-size:10.5px;color:#6E687C">Hors ligne</span></div>
+</div>
+<div style="font-size:12.5px;color:#5A5566;line-height:1.6;margin-top:22px;border-top:1px solid #E4DFD6;padding-top:16px;text-wrap:pretty">Icônes dessinées à la main sur une grille de 20, trait constant, aucun remplissage — sauf le signet actif, qui se remplit pour signaler l’état. Aucune bibliothèque d’icônes.</div>
+</div>
+
+<div style="background:#fff;border:1px solid #E4DFD6;padding:30px 32px">
+<div style="font-size:10px;font-weight:600;letter-spacing:1.8px;color:#6E687C">05 · COMPOSANTS</div>
+<div style="display:flex;flex-direction:column;gap:24px;margin-top:22px">
+<div>
+<div style="font-size:11px;letter-spacing:1.4px;color:#6E687C;margin-bottom:12px">BOUTONS</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+<button style="padding:15px 26px;border:none;background:#4E2A84;color:#fff;font-size:14px;font-weight:600;cursor:pointer" style-hover="background:#381E63">Ouvrir le chant</button>
+<button style="padding:14px 22px;border:1px solid #E4DFD6;background:transparent;color:#4E2A84;font-size:13px;font-weight:600;cursor:pointer" style-hover="background:#F3EEFB">Aller à</button>
+<button style="padding:0;border:none;background:transparent;color:#4E2A84;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px" style-hover="gap:13px">Lire ce chant <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h11M11 5.5 15.5 10 11 14.5"></path></svg></button>
+<button style="width:46px;height:46px;border:1px solid #E4DFD6;background:transparent;color:#5A5566;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="color:#4E2A84;border-color:#4E2A84"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5.5 3.4h9v13.4L10 13.1l-4.5 3.7z"></path></svg></button>
+<span style="padding:15px 26px;background:#EDE9E1;color:#A9A3B0;font-size:14px;font-weight:600">Indisponible</span>
+</div>
+</div>
+<div>
+<div style="font-size:11px;letter-spacing:1.4px;color:#6E687C;margin-bottom:12px">CHAMP DE RECHERCHE — REPOS / ACTIF</div>
+<div style="display:flex;gap:16px;flex-wrap:wrap">
+<div style="flex:1;min-width:220px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #E4DFD6;padding-bottom:11px"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#6E687C" stroke-width="1.5"><circle cx="9" cy="9" r="5.4"></circle><path d="M13.2 13.2 17 17"></path></svg><span style="font-size:16px;color:#6E687C">Titre, parole ou numéro</span></div>
+<div style="flex:1;min-width:220px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #4E2A84;padding-bottom:11px"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#4E2A84" stroke-width="1.5"><circle cx="9" cy="9" r="5.4"></circle><path d="M13.2 13.2 17 17"></path></svg><span style="font-size:16px;color:#17131F">gloire<span style="color:#4E2A84">|</span></span></div>
+</div>
+</div>
+<div>
+<div style="font-size:11px;letter-spacing:1.4px;color:#6E687C;margin-bottom:12px">LIGNE D’INDEX — REPOS / SURLIGNÉE / AVEC SIGNET</div>
+<div style="border-top:1px solid #F1EDE6">
+<div style="display:flex;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid #F1EDE6"><span style="width:38px;text-align:right;font-family:Newsreader,serif;font-size:20px;color:#4E2A84">26</span><span style="flex:1"><span style="display:block;font-size:14px;font-weight:500">AMEN, ALLÉLUIA AMEN</span><span style="display:block;font-family:Newsreader,serif;font-size:13px;color:#6E687C;margin-top:3px">Amen, alléluia amen</span></span></div>
+<div style="display:flex;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid #F1EDE6;background:#F3EEFB"><span style="width:38px;text-align:right;font-family:Newsreader,serif;font-size:20px;color:#4E2A84">27</span><span style="flex:1"><span style="display:block;font-size:14px;font-weight:500">JE VEUX MARCHER AVEC JÉSUS</span><span style="display:block;font-family:Newsreader,serif;font-size:13px;color:#6E687C;margin-top:3px">Je veux marcher avec Jésus</span></span></div>
+<div style="display:flex;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid #F1EDE6"><span style="width:38px;text-align:right;font-family:Newsreader,serif;font-size:20px;color:#4E2A84">28</span><span style="flex:1"><span style="display:block;font-size:14px;font-weight:500">C’EST TOI SEIGNEUR MA FORCE</span><span style="display:block;font-family:Newsreader,serif;font-size:13px;color:#6E687C;margin-top:3px">C’est toi Seigneur ma force</span></span><span style="color:#4E2A84;display:flex"><svg width="13" height="13" viewBox="0 0 20 20" fill="currentColor"><path d="M5.5 3.2h9v13.6L10 13l-4.5 3.8z"></path></svg></span></div>
+</div>
+</div>
+<div style="display:flex;gap:22px;flex-wrap:wrap">
+<div style="flex:1;min-width:200px">
+<div style="font-size:11px;letter-spacing:1.4px;color:#6E687C;margin-bottom:12px">BASCULE</div>
+<div style="display:flex;gap:14px;align-items:center">
+<span style="width:44px;height:24px;border:1px solid #4E2A84;background:#4E2A84;position:relative;display:block"><span style="position:absolute;top:3px;left:23px;width:16px;height:16px;background:#fff"></span></span>
+<span style="width:44px;height:24px;border:1px solid #E4DFD6;background:transparent;position:relative;display:block"><span style="position:absolute;top:3px;left:3px;width:16px;height:16px;background:#C9C3BA"></span></span>
+</div>
+</div>
+<div style="flex:1;min-width:200px">
+<div style="font-size:11px;letter-spacing:1.4px;color:#6E687C;margin-bottom:12px">SEGMENTS</div>
+<div style="display:flex;border:1px solid #E4DFD6">
+<span style="flex:1;padding:10px 0;text-align:center;color:#5A5566;font-size:12.5px;font-weight:600">Serré</span>
+<span style="flex:1;padding:10px 0;text-align:center;background:#4E2A84;color:#fff;font-size:12.5px;font-weight:600;border-left:1px solid #E4DFD6;border-right:1px solid #E4DFD6">Normal</span>
+<span style="flex:1;padding:10px 0;text-align:center;color:#5A5566;font-size:12.5px;font-weight:600">Aéré</span>
+</div>
+</div>
+<div style="flex:1;min-width:200px">
+<div style="font-size:11px;letter-spacing:1.4px;color:#6E687C;margin-bottom:12px">LETTRES DE CHŒURS</div>
+<div style="display:flex;gap:4px">
+<span style="width:28px;height:28px;background:#4E2A84;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Newsreader,serif;font-size:14px">A</span>
+<span style="width:28px;height:28px;color:#5A5566;display:flex;align-items:center;justify-content:center;font-family:Newsreader,serif;font-size:14px">C</span>
+<span style="width:28px;height:28px;color:#5A5566;display:flex;align-items:center;justify-content:center;font-family:Newsreader,serif;font-size:14px">D</span>
+<span style="width:28px;height:28px;color:#C9C3BA;display:flex;align-items:center;justify-content:center;font-family:Newsreader,serif;font-size:14px">B</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div style="background:#fff;border:1px solid #E4DFD6;padding:30px 32px">
+<div style="font-size:10px;font-weight:600;letter-spacing:1.8px;color:#6E687C">06 · MOUVEMENT</div>
+<div style="margin-top:20px">
+<div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #F1EDE6"><span style="font-size:13.5px;font-weight:500;flex:1">Défilement de lecture</span><span style="font-size:12.5px;color:#5A5566;text-align:right;flex:none">natif, inertie du système<br><span style="color:#6E687C">une seule colonne continue</span></span></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #F1EDE6"><span style="font-size:13.5px;font-weight:500;flex:1">Feuille inférieure</span><span style="font-size:12.5px;color:#5A5566;text-align:right;flex:none">340 ms · sortie 240 ms</span></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #F1EDE6"><span style="font-size:13.5px;font-weight:500;flex:1">Pilule → capsule de lecture</span><span style="font-size:12.5px;color:#5A5566;text-align:right;flex:none">260 ms · largeur et opacité</span></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #F1EDE6"><span style="font-size:13.5px;font-weight:500;flex:1">Ouverture (splash)</span><span style="font-size:12.5px;color:#5A5566;text-align:right;flex:none">livre 800 ms, filet 700 ms à 500 ms,<br>surtitre 700 ms à 620 ms</span></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #F1EDE6"><span style="font-size:13.5px;font-weight:500;flex:1">Pression</span><span style="font-size:12.5px;color:#5A5566;text-align:right;flex:none">surlignage violet papier, 120 ms<br><span style="color:#6E687C">aucun changement d’échelle</span></span></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0"><span style="font-size:13.5px;font-weight:500;flex:1">Changement de chant</span><span style="font-size:12.5px;color:#5A5566;text-align:right;flex:none">retour du défilement en haut, 0 ms<br><span style="color:#6E687C">le texte ne glisse pas latéralement</span></span></div>
+</div>
+<div style="font-size:12.5px;color:#5A5566;line-height:1.65;margin-top:20px;border-top:1px solid #E4DFD6;padding-top:16px;text-wrap:pretty">La lecture n’a qu’un seul geste : le défilement vertical, sans pagination ni découpe artificielle des strophes. Le reste de l’interface est immobile — le papier ne rebondit pas.</div>
+</div>
+
+<div style="background:#4E2A84;border:1px solid #4E2A84;padding:30px 32px;color:#fff">
+<div style="font-size:10px;font-weight:600;letter-spacing:1.8px;color:rgba(255,255,255,.6)">07 · PRINCIPES</div>
+<div style="margin-top:22px;display:flex;flex-direction:column">
+<div style="display:flex;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.16)"><span style="font-family:Newsreader,serif;font-size:15px;color:#F0C069;flex:none;width:20px">01</span><span><span style="display:block;font-size:14.5px;font-weight:600">La page avant l’application</span><span style="display:block;font-size:13px;color:rgba(255,255,255,.74);margin-top:5px;line-height:1.55">En lecture, aucune barre, aucun bouton permanent. Le texte occupe l’écran ; l’interface revient au toucher.</span></span></div>
+<div style="display:flex;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.16)"><span style="font-family:Newsreader,serif;font-size:15px;color:#F0C069;flex:none;width:20px">02</span><span><span style="display:block;font-size:14.5px;font-weight:600">Le numéro est le nom</span><span style="display:block;font-size:13px;color:rgba(255,255,255,.74);margin-top:5px;line-height:1.55">On annonce « chant 133 » à l’assemblée. Le chiffre est donc composé grand, en serif, partout où il apparaît.</span></span></div>
+<div style="display:flex;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.16)"><span style="font-family:Newsreader,serif;font-size:15px;color:#F0C069;flex:none;width:20px">03</span><span><span style="display:block;font-size:14.5px;font-weight:600">Une information, un seul endroit</span><span style="display:block;font-size:13px;color:rgba(255,255,255,.74);margin-top:5px;line-height:1.55">Pas de compteurs répétés d’écran en écran, pas de résumé du contenu déjà visible. Chaque écran dit une chose de plus.</span></span></div>
+<div style="display:flex;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.16)"><span style="font-family:Newsreader,serif;font-size:15px;color:#F0C069;flex:none;width:20px">04</span><span><span style="display:block;font-size:14.5px;font-weight:600">Trois touchers maximum</span><span style="display:block;font-size:13px;color:rgba(255,255,255,.74);margin-top:5px;line-height:1.55">De l’ouverture à la première parole : recherche au centre, clavier de numéros, page. Rien de plus long.</span></span></div>
+<div style="display:flex;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.16)"><span style="font-family:Newsreader,serif;font-size:15px;color:#F0C069;flex:none;width:20px">05</span><span><span style="display:block;font-size:14.5px;font-weight:600">Les réglages se voient</span><span style="display:block;font-size:13px;color:rgba(255,255,255,.74);margin-top:5px;line-height:1.55">Chaque réglage montre son effet immédiatement, sur un vrai verset — jamais une liste d’intitulés abstraits.</span></span></div>
+<div style="display:flex;gap:16px;padding:14px 0"><span style="font-family:Newsreader,serif;font-size:15px;color:#F0C069;flex:none;width:20px">06</span><span><span style="display:block;font-size:14.5px;font-weight:600">Hors connexion par défaut</span><span style="display:block;font-size:13px;color:rgba(255,255,255,.74);margin-top:5px;line-height:1.55">Les 302 cantiques et 85 chœurs sont embarqués. Aucun écran de chargement, aucun état vide involontaire.</span></span></div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;couleurMarque&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#4E2A84&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#4E2A84&quot;,&quot;#5C2E9E&quot;,&quot;#3F2A6E&quot;,&quot;#6B3FAE&quot;],&quot;section&quot;:&quot;Identité&quot;},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Système&quot;,&quot;options&quot;:[&quot;Clair&quot;,&quot;Sombre&quot;,&quot;Système&quot;],&quot;tsType&quot;:&quot;'Clair'|'Sombre'|'Système'&quot;,&quot;section&quot;:&quot;Identité&quot;},&quot;numerosGeants&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Index&quot;}}">
+const DARK = '--ink:#F5F2F8;--ink2:#ADA5BB;--ink3:#8B8399;--paper:#141019;--surf:#1C1626;--surf2:#1F1829;--rule:#2C2439;--ruleSoft:#221B2E;--pri:#B79AE6;--priDeep:#C9B2F0;--priSoft:#251D36;--onPri:#1A1424;--blur:rgba(20,16,25,.86);';
+const SIZES = [16.5, 18, 19.5, 21, 23];
+const SIZE_LABELS = ['Compact', 'Confortable', 'Standard', 'Grand', 'Très grand'];
+const FRAMES = [
+  ['splash', 'Lancement', 'l’ouverture du livre'],
+  ['accueil', 'Accueil', 'une une, pas un tableau de bord'],
+  ['liste', 'Les 302 cantiques', 'index typographique'],
+  ['lecture', 'Lecture', 'défilement vertical, texte continu'],
+  ['nuit', 'Lecture · nuit', 'même page, encre inversée'],
+  ['choeurs', 'Chœurs', '85, classés par lettre'],
+  ['recherche', 'Recherche', 'titres et paroles'],
+  ['numero', 'Aller à un chant', 'clavier de numéros'],
+  ['signets', 'Favoris', 'ce qu’on rechante'],
+  ['reglages', 'Réglages', 'chaque réglage se voit'],
+  ['apropos', 'À propos', 'le colophon']
+];
+const norm = s => (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+const cap = s => s || '';
+const struct = song => {
+  if (!song) return '';
+  const v = song.parts.filter(p => p.t === 'v').length;
+  const r = song.parts.filter(p => p.t !== 'v').length;
+  if (v) return v + (v > 1 ? ' strophes' : ' strophe') + (r ? ' · refrain' : '');
+  return r + (r > 1 ? ' strophes' : ' strophe') + ' · sans numéro';
+};
+const subLine = song => {
+  if (!song) return '';
+  const t = norm(song.title);
+  for (let i = 0; i < song.parts.length; i++) {
+    const l = song.parts[i].l.find(x => { const n = norm(x); return n.length > 6 && n.indexOf(t) < 0 && t.indexOf(n) < 0; });
+    if (l) return l;
+  }
+  return struct(song);
+};
+
+class Component extends DCLogic {
+  state = {
+    C: [], CH: [],
+    fav: [1, 26, 133, 219, 302],
+    prefs: { theme: 'Système', size: 2, nums: true, italic: true, awake: false, mode: 'Normal' },
+    fr: {
+      splash: { s: 'splash' },
+      accueil: { s: 'accueil' },
+      liste: { s: 'liste', sort: 'num', from: 1 },
+      lecture: { s: 'lecture', n: 1, p: 0 },
+      nuit: { s: 'lecture', n: 133, p: 1, dark: true },
+      choeurs: { s: 'choeurs', letter: 'A' },
+      recherche: { s: 'recherche', q: 'gloire' },
+      numero: { s: 'liste', sort: 'num', from: 1, sheet: 'goto', typed: '13' },
+      signets: { s: 'signets' },
+      reglages: { s: 'reglages' },
+      apropos: { s: 'apropos' }
+    }
+  };
+
+  componentDidMount() {
+    const apply = d => { if (d && d.CANTIQUES) this.setState({ C: d.CANTIQUES, CH: d.CHOEURS }); };
+    if (typeof window !== 'undefined' && window.RECUEIL_III) return apply(window.RECUEIL_III);
+    let n = 0;
+    const t = setInterval(() => {
+      if (typeof window !== 'undefined' && window.RECUEIL_III) { clearInterval(t); apply(window.RECUEIL_III); }
+      else if (++n > 120) clearInterval(t);
+    }, 50);
+    import('./recueil-iii-data.js').then(m => { clearInterval(t); apply(m); }).catch(() => {});
+  }
+
+  set(key, patch) {
+    this.setState(s => ({ fr: { ...s.fr, [key]: { ...s.fr[key], ...patch } } }));
+  }
+  pref(patch) { this.setState(s => ({ prefs: { ...s.prefs, ...patch } })); }
+
+  song(n) { return this.state.C.find(s => s.n === n); }
+
+  keypad(key, f) {
+    const t = f.typed || '';
+    const tn = parseInt(t, 10);
+    const ts = this.song(tn);
+    const open = () => ts ? this.set(key, { s: 'lecture', n: tn, sheet: null }) : null;
+    return {
+      typed: t || '—',
+      typedTitle: t === '' ? 'Composez un numéro de 1 à 302' : (ts ? ts.title : 'Aucun chant n° ' + t),
+      keys: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '←', '0', 'OK'].map(k => ({
+        label: k,
+        color: k === 'OK' ? 'var(--pri)' : k === '←' ? 'var(--ink3)' : 'var(--ink)',
+        size: (k === '←' || k === 'OK') ? '14px' : '23px',
+        press: () => {
+          if (k === '←') return this.set(key, { typed: t.slice(0, -1) });
+          if (k === 'OK') return open();
+          if (t.length >= 3) return null;
+          this.set(key, { typed: t + k });
+        }
+      })),
+      confirmGoto: open
+    };
+  }
+
+  navTab(f, key, tabKey, label, extra) {
+    const on = f.s === tabKey;
+    return Object.assign({
+      key: tabKey, label,
+      color: on ? 'var(--pri)' : 'var(--ink3)',
+      dot: on ? 'var(--pri)' : 'transparent',
+      go: () => this.set(key, { s: tabKey, sheet: null })
+    }, extra);
+  }
+
+  renderVals() {
+    const st = this.state, C = st.C, CH = st.CH, P = st.prefs;
+    const brand = this.props.couleurMarque || '#4E2A84';
+    const themeProp = this.props.theme || 'Système';
+    const globalTheme = P.theme === 'Système' ? themeProp : P.theme;
+    const bigNums = this.props.numerosGeants !== false;
+    const brandVars = brand === '#4E2A84' ? '' : ('--pri:' + brand + ';--priDeep:' + brand + ';');
+    const size = SIZES[P.size];
+    const day = C.find(s => s.n === 148);
+    const resume = C.find(s => s.n === 26);
+
+    const frames = FRAMES.map(([key, label, note], i) => {
+      const f = st.fr[key];
+      const dark = f.dark || globalTheme === 'Sombre';
+      const o = {
+        key, label, note, idx: String(i + 1).padStart(2, '0'),
+        vars: (dark ? DARK : '') + brandVars,
+        isSplash: f.s === 'splash', isAccueil: f.s === 'accueil', isListe: f.s === 'liste',
+        isLecture: f.s === 'lecture', isChoeurs: f.s === 'choeurs', isRecherche: f.s === 'recherche',
+        isSignets: f.s === 'signets', isReglages: f.s === 'reglages', isApropos: f.s === 'apropos',
+        hasChrome: f.s !== 'splash',
+        showNav: f.s !== 'splash' && f.s !== 'lecture' && f.s !== 'apropos',
+        sheetGoto: f.sheet === 'goto', sheetMore: f.sheet === 'more',
+        goAccueil: () => this.set(key, { s: 'accueil', sheet: null }),
+        goListe: () => this.set(key, { s: 'liste', sheet: null }),
+        goChoeurs: () => this.set(key, { s: 'choeurs', sheet: null }),
+        goSignets: () => this.set(key, { s: 'signets', sheet: null }),
+        goRecherche: () => this.set(key, { s: 'recherche', sheet: null }),
+        goReglages: () => this.set(key, { s: 'reglages', sheet: null }),
+        goApropos: () => this.set(key, { s: 'apropos', sheet: null }),
+        openGoto: () => this.set(key, { sheet: 'goto', typed: '' }),
+        openMore: () => this.set(key, { sheet: 'more' }),
+        closeSheet: () => this.set(key, { sheet: null }),
+        back: () => this.set(key, { s: 'liste', sheet: null }),
+        resume: () => this.set(key, { s: 'lecture', n: 26, p: 0 }),
+        openDay: () => this.set(key, { s: 'lecture', n: 148, p: 0 })
+      };
+      o.navLeft = [
+        this.navTab(f, key, 'accueil', 'Accueil', { isHome: true }),
+        this.navTab(f, key, 'liste', 'Cantiques', { isList: true })
+      ];
+      o.navRight = [
+        this.navTab(f, key, 'choeurs', 'Chœurs', { isChoir: true }),
+        this.navTab(f, key, 'signets', 'Favoris', { isMark: true })
+      ];
+      Object.assign(o, this.keypad(key, f));
+
+      if (o.isListe) {
+        const src = f.sort === 'alpha' ? C.slice().sort((a, b) => a.title.localeCompare(b.title, 'fr')) : C;
+        const start = f.sort === 'alpha' ? 0 : Math.max(0, (f.from || 1) - 1);
+        o.rows = src.slice(start, start + 8).map(s => ({
+          n: s.n, title: s.title, first: subLine(s),
+          fav: st.fav.indexOf(s.n) > -1,
+          open: () => this.set(key, { s: 'lecture', n: s.n, p: 0, sheet: null })
+        }));
+        o.sortNumColor = f.sort === 'num' ? 'var(--pri)' : 'var(--ink3)';
+        o.sortNumRule = f.sort === 'num' ? 'var(--pri)' : 'transparent';
+        o.sortAlphaColor = f.sort === 'alpha' ? 'var(--pri)' : 'var(--ink3)';
+        o.sortAlphaRule = f.sort === 'alpha' ? 'var(--pri)' : 'transparent';
+        o.sortNum = () => this.set(key, { sort: 'num' });
+        o.sortAlpha = () => this.set(key, { sort: 'alpha' });
+        o.decades = [1, 50, 100, 150, 200, 250, 300].map(d => ({
+          label: d, color: Math.abs((f.from || 1) - d) < 25 ? 'var(--pri)' : 'var(--ink3)',
+          go: () => this.set(key, { from: d, sort: 'num' })
+        }));
+      }
+
+      if (o.isLecture) {
+        const song = this.song(f.n) || C[0];
+        o.blocks = (song ? song.parts : []).map((part, j) => ({
+          key: j, isVerse: part.t === 'v', isRefrain: part.t !== 'v',
+          num: part.n ? String(part.n) : '', lines: part.l
+        }));
+        o.songNum = song ? song.n : '';
+        o.songTitle = song ? song.title : '';
+        o.runningHead = song ? song.title : '';
+        o.partLabel = struct(song).toUpperCase();
+        const isFav = st.fav.indexOf(f.n) > -1;
+        o.favColor = isFav ? 'var(--pri)' : 'var(--ink3)';
+        o.favFill = isFav ? 'currentColor' : 'none';
+        o.toggleFav = () => this.setState(s => ({
+          fav: s.fav.indexOf(f.n) > -1 ? s.fav.filter(x => x !== f.n) : s.fav.concat([f.n]).sort((a, b) => a - b)
+        }));
+        o.prevNum = f.n > 1 ? f.n - 1 : '—';
+        o.nextNum = f.n < 302 ? f.n + 1 : '—';
+        o.readRef = el => { this._read = this._read || {}; this._read[key] = el; };
+        const toTop = () => { const el = this._read && this._read[key]; if (el) el.scrollTop = 0; };
+        o.prevSong = () => { if (f.n > 1) { this.set(key, { n: f.n - 1 }); toTop(); } };
+        o.nextSong = () => { if (f.n < 302) { this.set(key, { n: f.n + 1 }); toTop(); } };
+        o.moreItems = [
+          { key: 'a', mark: isFav ? '✓' : '+', label: isFav ? 'Retirer des favoris' : 'Ajouter aux favoris', go: () => { o.toggleFav(); this.set(key, { sheet: null }); } },
+          { key: 'b', mark: '↗', label: 'Partager les paroles', go: () => this.set(key, { sheet: null }) },
+          { key: 'c', mark: '#', label: 'Aller à un chant', go: () => this.set(key, { sheet: 'goto', typed: '' }) },
+          { key: 'd', mark: 'A', label: 'Taille du texte', go: () => this.set(key, { s: 'reglages', sheet: null }) }
+        ];
+      }
+
+      if (o.isChoeurs) {
+        const letters = [];
+        CH.forEach(c => { if (letters.indexOf(c.letter) < 0) letters.push(c.letter); });
+        o.letter = f.letter;
+        o.letters = letters.map(l => ({
+          label: l,
+          bg: l === f.letter ? 'var(--pri)' : 'transparent',
+          color: l === f.letter ? 'var(--onPri)' : 'var(--ink2)',
+          go: () => this.set(key, { letter: l })
+        }));
+        o.choeurs = CH.filter(c => c.letter === f.letter).slice(0, 5).map(c => ({
+          key: c.n, head: c.l[0], rest: c.l.slice(1), tag: 'N° ' + c.n
+        }));
+      }
+
+      if (o.isRecherche) {
+        const q = f.q === undefined ? '' : f.q;
+        const nq = norm(q);
+        o.q = q;
+        o.onQuery = e => this.set(key, { q: e.target.value });
+        o.clear = () => this.set(key, { q: '' });
+        o.isNumeric = /^\d{1,3}$/.test(q.trim());
+        const ns = this.song(parseInt(q, 10));
+        o.numericTitle = ns ? cap(ns.title) : 'Aucun chant à ce numéro';
+        o.openTyped = () => ns ? this.set(key, { s: 'lecture', n: ns.n, p: 0 }) : null;
+        let res = [];
+        if (nq.length > 1) {
+          for (let i = 0; i < C.length && res.length < 7; i++) {
+            const s = C[i];
+            let hitLine = null;
+            if (norm(s.title).indexOf(nq) > -1) hitLine = s.parts[0] ? s.parts[0].l[0] : '';
+            else {
+              for (let j = 0; j < s.parts.length && !hitLine; j++) {
+                const l = s.parts[j].l.find(x => norm(x).indexOf(nq) > -1);
+                if (l) hitLine = l;
+              }
+            }
+            if (hitLine === null) continue;
+            const k = norm(hitLine).indexOf(nq);
+            res.push({
+              key: s.n, n: s.n, title: cap(s.title),
+              pre: k > -1 ? hitLine.slice(0, k) : hitLine,
+              hit: k > -1 ? hitLine.slice(k, k + q.length) : '',
+              post: k > -1 ? hitLine.slice(k + q.length) : '',
+              open: () => this.set(key, { s: 'lecture', n: s.n, p: 0 })
+            });
+          }
+        }
+        o.results = res;
+        o.resultMeta = nq.length < 2 ? '302 CANTIQUES · 85 CHŒURS' : (res.length ? res.length + ' RÉSULTAT' + (res.length > 1 ? 'S' : '') + ' POUR « ' + q.toUpperCase() + ' »' : 'AUCUN RÉSULTAT');
+      }
+
+      if (o.isSignets) {
+        o.favRows = st.fav.map(n => {
+          const s = this.song(n);
+          return {
+            key: n, n: n, title: s ? cap(s.title) : '',
+            meta: struct(s),
+            open: () => this.set(key, { s: 'lecture', n: n, p: 0 }),
+            remove: () => this.setState(s2 => ({ fav: s2.fav.filter(x => x !== n) }))
+          };
+        });
+        o.favEmpty = st.fav.length === 0;
+      }
+
+      return o;
+    });
+
+    const specimenSong = this.song(133);
+    return {
+      frames,
+      bigNums,
+      numSize: bigNums ? '22px' : '15px',
+      lyricSize: size + 'px',
+      lyricLead: P.mode === 'Serré' ? '1.48' : P.mode === 'Aéré' ? '1.84' : '1.64',
+      refrainStyle: P.italic ? 'italic' : 'normal',
+      showNums: P.nums,
+      favCount: st.fav.length,
+      favMeta: st.fav.length + (st.fav.length > 1 ? ' chants gardés' : ' chant gardé'),
+      resumeNum: resume ? resume.n : '',
+      resumeTitle: resume ? cap(resume.title) : '',
+      dayNum: day ? day.n : '',
+      dayTitle: day ? cap(day.title) : '',
+      dayLines: day ? (day.parts.find(p => p.t === 'r') || day.parts[0]).l.slice(0, 2) : [],
+      specimen: specimenSong ? specimenSong.parts[0].l.slice(0, 3) : [],
+      sizeLabel: SIZE_LABELS[P.size] + ' · ' + size + ' px',
+      sizeTicks: SIZES.map((s, i) => ({ key: i, bg: i <= P.size ? 'var(--pri)' : 'var(--rule)' })),
+      sizeUp: () => this.pref({ size: Math.min(4, P.size + 1) }),
+      sizeDown: () => this.pref({ size: Math.max(0, P.size - 1) }),
+      themes: ['Clair', 'Sombre', 'Système'].map(t => ({
+        key: t, label: t,
+        bg: P.theme === t ? 'var(--pri)' : 'transparent',
+        color: P.theme === t ? 'var(--onPri)' : 'var(--ink2)',
+        go: () => this.pref({ theme: t })
+      })),
+      modes: ['Serré', 'Normal', 'Aéré'].map(m => ({
+        key: m, label: m,
+        bg: P.mode === m ? 'var(--pri)' : 'transparent',
+        color: P.mode === m ? 'var(--onPri)' : 'var(--ink2)',
+        go: () => this.pref({ mode: m })
+      })),
+      toggles: [
+        { key: 'nums', label: 'Numéros de strophe', hint: 'Dans la marge, en chiffres serif', on: P.nums, go: () => this.pref({ nums: !P.nums }) },
+        { key: 'ital', label: 'Refrain en italique', hint: 'Entre deux filets or', on: P.italic, go: () => this.pref({ italic: !P.italic }) },
+        { key: 'awake', label: 'Garder l’écran allumé', hint: 'Pendant toute la lecture', on: P.awake, go: () => this.pref({ awake: !P.awake }) }
+      ].map(t => ({
+        key: t.key, label: t.label, hint: t.hint, go: t.go,
+        track: t.on ? 'var(--pri)' : 'var(--rule)',
+        trackBg: t.on ? 'var(--pri)' : 'transparent',
+        knob: t.on ? '23px' : '3px',
+        knobBg: t.on ? 'var(--onPri)' : 'var(--ink3)'
+      })),
+      aboutGroups: [
+        {
+          key: 'oeuvre', label: 'LE RECUEIL', rows: [
+            { key: 'a', label: 'Auteur', value: 'TCHINDEBBE Charles', plain: true },
+            { key: 'b', label: 'Édition', value: 'Troisième — 2025', plain: true },
+            { key: 'c', label: 'Contenu', value: '302 cantiques · 85 chœurs', plain: true },
+            { key: 'd', label: 'Langue', value: 'Français', plain: true }
+          ]
+        },
+        {
+          key: 'app', label: 'L’APPLICATION', rows: [
+            { key: 'e', label: 'Version', value: '3.0.0', plain: true },
+            { key: 'f', label: 'Fonctionnement', value: 'Hors connexion', plain: true },
+            { key: 'g', label: 'Taille', value: '4,1 Mo', plain: true }
+          ]
+        },
+        {
+          key: 'contact', label: 'CONTACT', rows: [
+            { key: 'h', label: 'Production', value: '699 90 14 39 · 676 63 14 31 · 696 11 51 13', plain: true },
+            { key: 'i', label: 'E-mail', value: 'charlestchindebbe@yahoo.fr', isMail: true }
+          ]
+        }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
